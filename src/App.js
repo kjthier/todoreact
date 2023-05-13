@@ -7,7 +7,7 @@ function App() {
       <ListTitle />
       <Input />
       <TaskList />
-      <SaveList />
+      <SaveBtn />
     </div>
   );
 }

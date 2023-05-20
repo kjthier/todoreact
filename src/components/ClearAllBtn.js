@@ -6,7 +6,7 @@ export default function ClearAllBtn({ todos, clearTodos }) {
                   clearTodos()
               }
               }}
-              className='btn btn-danger'
+              className='btn btn-clear'
           >
               Clear All
           </button>

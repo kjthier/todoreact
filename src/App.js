@@ -3,6 +3,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ClearAllBtn from './components/ClearAllBtn';
 
+   
 export default function App() {
 
   // Creates stored array for todos on the list:
@@ -57,7 +58,7 @@ export default function App() {
       <>
           {/* (How props work: When adding props, call them here the same name as in the fcn signature - in this case, 'NewTodoForm({onSubmit})'). The addTodo() is then called as it exists on this file and not in NewTodoForm. Props exist in the child component while the functions of the props are in this parent file. */}
           <h1 className='header'>Today's Tasks</h1>
-          <TodoForm onSubmit={addTodo}/>
+          <TodoForm onSubmit={addTodo} />
           <TodoList 
               todos={todos} 
               toggleTodo={toggleTodo} 
@@ -71,7 +72,8 @@ export default function App() {
   )
 }
 
-// styling
+// use state to move checked todos to the bottom of the list
+// add clear all checked button
 // add edit fcn
 // add nav
 // add footer

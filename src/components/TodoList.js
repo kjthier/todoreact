@@ -2,7 +2,7 @@ import { TodoItem } from "./TodoItem.js"
 import '../styles.scss';
 
 
-export default function TodoList({ todos, toggleTodo, deleteTodo, clearTodos }) {
+export default function TodoList({ todos, toggleTodo, deleteTodo, clearTodos,editTodo }) {
     return (
         <ul className='list'>
             {/* renders text if todo list is empty (called short circuiting) */}
@@ -18,6 +18,7 @@ export default function TodoList({ todos, toggleTodo, deleteTodo, clearTodos }) 
                         toggleTodo={toggleTodo}
                         deleteTodo={deleteTodo} 
                         clearTodos={clearTodos}
+                        editTodo={editTodo}
                     />
                 )
             })}  

@@ -48,7 +48,15 @@ export default function App() {
           return currentTodos.filter(todo => todo.id !== id)
       })
   }
-
+  function editTodo(id,title){
+    setTodos(currentTodos =>
+      currentTodos.map((item) => {
+        if (id === item.id){
+          item.title = title;
+        }
+        return item;
+    }));
+  }
   // Clear all todos from list:
   function clearTodos() {
       setTodos([])
@@ -63,7 +71,8 @@ export default function App() {
               todos={todos} 
               toggleTodo={toggleTodo} 
               deleteTodo={deleteTodo} 
-              clearTodos={clearTodos} />
+              clearTodos={clearTodos}
+              editTodo={editTodo} />
           <ClearAllBtn
             todos={todos} 
             clearTodos={clearTodos} 

@@ -2,9 +2,25 @@ import '../styles.scss';
 
 
 // passing in everything needed from App.js
-export function TodoItem({ completed, id, title, toggleTodo, deleteTodo }) {
+import {  useState } from 'react'
+export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, editTodo }) {
+    const [newTitle,setNewTitle] =useState(title);
+    const [isEditing, setIsEditing] = useState(false);
+
+    const handleEditEnter = (e) => {
+        if(e.key === 'Enter')
+        { 
+            editTodo(id,newTitle);
+            setIsEditing(false);
+        }
+    }
+
     return (
-        <li className='list-item' >
+        <li className='list-item'>
+            {isEditing ? 
+            <input value={newTitle} onChange={(e)=> setNewTitle(e.target.value)} onKeyUp={handleEditEnter}></input>
+            :
+            <div>
             <label>
                 {/* toggle checked on click, marked completed when checked */}
                 <input 
@@ -22,6 +38,9 @@ export function TodoItem({ completed, id, title, toggleTodo, deleteTodo }) {
             >
                 Delete
             </button>
+            <button onClick={() => setIsEditing(true)}>Edit</button>
+            </div>
+}
         </li>
     )
 }

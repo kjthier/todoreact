@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import TodoForm from './components/TodoForm';
-
 import TodoList from './components/TodoList';
+import ClearAllBtn from './components/ClearAllBtn';
 
 export default function App() {
 
@@ -64,19 +64,15 @@ export default function App() {
               toggleTodo={toggleTodo} 
               deleteTodo={deleteTodo} 
               clearTodos={clearTodos} />
-          <button
-              onClick={() => clearTodos()}
-              className='btn btn-danger'
-          >
-              Clear All
-          </button>
-
+          <ClearAllBtn
+            todos={todos} 
+            clearTodos={clearTodos} 
+          />
       </>
   )
 }
 
+// styling
 // add edit fcn
 // add nav
 // add footer
-
-// add alert re clearing all todos

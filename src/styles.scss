@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Finlandica', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: white !important;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+main {
+    width: 50%;
+    height: 100vh;
+    padding: 1em;
+    overflow: none;
+}
+
+.input-label {
+    font-size: 17px;
+}
+
+.new-item-form {
+    background-color: transparent !important;;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 0.5rem;
+
+    input {
+        margin: 0em .5em;
+        padding: 0.1em 0.3em;
+    }
+
+    button {
+        border:none;
+        background-color:#f9f9b3 !important;
+        margin: 3px;
+        font-size: 15px;
+    }
+}
+
+.addBtn:hover {
+    background-color:#e3e300 !important;
+
+}
+
+.list {
+    padding: 0;
+
+}
+.list-item {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: .5em;
+}
+
+.btn-clear {
+    background-color: rgb(251, 99, 82);
+    color: white;
+}
+
+.completed {
+    text-decoration: line-through;
+  }
+
+.btn-delete:hover {
+    color: rgb(251, 99, 82);
+}

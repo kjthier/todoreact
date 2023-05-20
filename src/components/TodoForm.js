@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import '../styles.scss';
+
 
 export default function TodoForm({onSubmit}) {
 
@@ -22,14 +24,14 @@ export default function TodoForm({onSubmit}) {
     return (
         <form onSubmit={handleSubmit} className='new-item-form'>
             <div className='form-row'>
-                <label htmlFor='item'>Add a task:</label>
+                <label htmlFor='item' className='input-label'>Add a task:</label>
                 <input 
                     value={newItem} 
                     onChange={e => setNewItem(e.target.value)}
                     type='text' 
                     id='item' 
                 />
-                <button className='btn'>+</button>
+                <button className='btn addBtn'>+</button>
             </div>
         </form>
     )

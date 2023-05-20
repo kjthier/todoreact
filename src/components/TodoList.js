@@ -1,4 +1,6 @@
 import { TodoItem } from "./TodoItem.js"
+import '../styles.scss';
+
 
 export default function TodoList({ todos, toggleTodo, deleteTodo, clearTodos }) {
     return (

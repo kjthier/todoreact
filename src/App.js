@@ -51,17 +51,13 @@ export default function App() {
 
   // Clear all todos from list:
   function clearTodos() {
-      setTodos(currentTodos => {
-          return currentTodos.map(todo => {
-              return todo = ['']
-          })
-      })
+      setTodos([])
   }
 
   return (
       <>
           {/* (How props work: When adding props, call them here the same name as in the fcn signature - in this case, 'NewTodoForm({onSubmit})'). The addTodo() is then called as it exists on this file and not in NewTodoForm. Props exist in the child component while the functions of the props are in this parent file. */}
-          <h1 className='header'>Todo List</h1>
+          <h1 className='header'>Today's Tasks</h1>
           <TodoForm onSubmit={addTodo}/>
           <TodoList 
               todos={todos} 
@@ -72,9 +68,9 @@ export default function App() {
               onClick={() => clearTodos()}
               className='btn btn-danger'
           >
-              Clear List
+              Clear All
           </button>
-          
+
       </>
   )
 }

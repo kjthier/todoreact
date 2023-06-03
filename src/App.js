@@ -109,9 +109,8 @@ const unCheckAll = () => {
               deleteTodo={deleteTodo} 
               clearTodos={clearTodos}
               editTodo={editTodo} />
-        {renderAllBtn ?
-        <div>No buttons</div>
-        :
+        
+        
         <div className='all-btns'>
             <CheckAllBtn 
                 checkTodos= {checkTodos}
@@ -124,7 +123,7 @@ const unCheckAll = () => {
                 clearTodos={clearTodos} 
             />
         </div>
-        }
+        
       </>
   )
 }

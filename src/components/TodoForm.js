@@ -30,6 +30,7 @@ export default function TodoForm({onSubmit}) {
                     onChange={e => setNewItem(e.target.value)}
                     type='text' 
                     id='item' 
+                    placeholder='buy fodder... brush fur...'
                 />
                 <button className='btn addBtn'>+</button>
             </div>

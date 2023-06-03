@@ -6,7 +6,7 @@ export default function TodoList({ todos, toggleTodo, deleteTodo, clearTodos,edi
     return (
         <ul className='list'>
             {/* renders text if todo list is empty (called short circuiting) */}
-            {todos.length === 0 &&  'Your tasks are complete!'}
+            {todos.length === 0 &&  'All done? Then it is time to pet your pet!'}
 
             {/* /* returns an array (an 'li' element) with unique identifier ('key') */}
             {todos.map(todo => {

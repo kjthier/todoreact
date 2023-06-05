@@ -3,7 +3,9 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ClearAllBtn from './components/ClearAllBtn';
-import Navbar from './components/Navbar';
+import CheckAllBtn from './components/CheckAllBtn'
+import UnCheckAllBtn from './components/UnCheckAllBtn';
+import Header from './components/Header.js';import Navbar from './components/Navbar';
 
 
 const router = createBrowserRouter( createRoutesFromElements(
@@ -24,9 +26,11 @@ export default function App() {
       return JSON.parse(localValue)
   })
 
+  const [renderAllBtn, setRenderAllBtn] = useState(false)
+
   // Create local storage functionality - ie "run this function (take the todos and storing them inside local storage) every time the objects inside the 2nd property of the array [todos] change". This stores data in local storage, but doesn't 'get' it from local storage - that is the fcn called in useState, above.
   useEffect(() => {
-      localStorage.setItem('ITEMS', JSON.stringify(todos))
+      localStorage.setItem('ITEMS', JSON.stringify(todos))     
   }, [todos])
 
   // Adds todos to the list:
@@ -38,7 +42,6 @@ export default function App() {
           ]
       })
   }
-
   // Toggles checked on tasks in list, takes parameters 'id' and whether or not it's completed:
   function toggleTodo(id, completed) {
       setTodos(currentTodos => {
@@ -51,6 +54,29 @@ export default function App() {
           })
       })
   }
+  //-------------------Check all todos-------------------------
+  const checkTodos = () => {
+    setTodos(prev => {
+    return prev.map((item) => {
+            if (item.completed === false) {
+                //console.log(item);
+                item.completed = true;
+            }
+            return item;
+        })
+    })
+}
+//---------------UN-check all todos---------------------
+const unCheckAll = () => {
+    setTodos(prev => {
+        return prev.map(item => {
+            if (item.completed === true){
+                item.completed = false;
+            }
+        return item;
+        })
+    })
+}
 
   // Deletes todos from the list - if todo id is not equal to the id of the task being deleted, keep it, otherwise delete:
   function deleteTodo(id) {
@@ -58,6 +84,7 @@ export default function App() {
           return currentTodos.filter(todo => todo.id !== id)
       })
   }
+  //----------------Edit-function------------------
   function editTodo(id,title){
     setTodos(currentTodos =>
       currentTodos.map((item) => {
@@ -67,17 +94,25 @@ export default function App() {
         return item;
     }));
   }
-  // Clear all todos from list:
+  //----------- Clear all todos from list:-------------
   function clearTodos() {
       setTodos([])
   }
 
+  //---------- funcs to render the general-buttons only if nessesary--------
+  function displayCheckAllBtn(todos) {
+    const renderCheck = true;
+    const renderUncheck = true;
+    const renderDelete = true;
+  }
   return (
       <>
+      <Header />
           {/* (How props work: When adding props, call them here the same name as in the fcn signature - in this case, 'NewTodoForm({onSubmit})'). The addTodo() is then called as it exists on this file and not in NewTodoForm. Props exist in the child component while the functions of the props are in this parent file. */}
           <RouterProvider router={ router } />
           <h1 className='header'>Today's Tasks</h1>
           <TodoForm onSubmit={addTodo} />
+          </div>
           <TodoList 
               todos={todos} 
               toggleTodo={toggleTodo} 
@@ -95,6 +130,6 @@ export default function App() {
 
 // use state to move checked todos to the bottom of the list
 // add clear all checked button
-// add edit fcn
+// add edit fcn -done
 // add nav
 // add footer

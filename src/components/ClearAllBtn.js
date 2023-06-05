@@ -1,6 +1,6 @@
 export default function ClearAllBtn({ todos, clearTodos }) {
     return (
-        <button
+        <button 
               onClick={() => {
                 if (todos.length > 0 && window.confirm('Are you sure you want to remove all tasks from this list?')) { 
                   clearTodos()
@@ -8,7 +8,7 @@ export default function ClearAllBtn({ todos, clearTodos }) {
               }}
               className='btn btn-clear'
           >
-              Clear All
+              Delete All
           </button>
     )
 }

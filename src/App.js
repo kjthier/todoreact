@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ClearAllBtn from './components/ClearAllBtn';
 import CheckAllBtn from './components/CheckAllBtn'
 import UnCheckAllBtn from './components/UnCheckAllBtn';
-import Header from './components/Header.js';
-   
+import Header from './components/Header.js';import Navbar from './components/Navbar';
+
+
+const router = createBrowserRouter( createRoutesFromElements(
+    <Route 
+        path='/' 
+        element= {<root/>}>
+            {/* add routes here */}
+    </Route>
+));
+
 export default function App() {
 
   // Creates stored array for todos on the list:
@@ -99,31 +109,20 @@ const unCheckAll = () => {
       <>
       <Header />
           {/* (How props work: When adding props, call them here the same name as in the fcn signature - in this case, 'NewTodoForm({onSubmit})'). The addTodo() is then called as it exists on this file and not in NewTodoForm. Props exist in the child component while the functions of the props are in this parent file. */}
-          <div className='centerContent'>
+          <RouterProvider router={ router } />
           <h1 className='header'>Today's Tasks</h1>
           <TodoForm onSubmit={addTodo} />
-          </div>
           <TodoList 
               todos={todos} 
               toggleTodo={toggleTodo} 
               deleteTodo={deleteTodo} 
               clearTodos={clearTodos}
               editTodo={editTodo} />
-        
-        
-        <div className='all-btns'>
-            <CheckAllBtn 
-                checkTodos= {checkTodos}
-            />
-            <UnCheckAllBtn
-                unCheckAll={unCheckAll}
-            />
-            <ClearAllBtn
-                todos={todos} 
-                clearTodos={clearTodos} 
-            />
-        </div>
-        
+          <ClearAllBtn
+            todos={todos} 
+            clearTodos={clearTodos} 
+          />
+          <Navbar />
       </>
   )
 }

@@ -112,7 +112,6 @@ const unCheckAll = () => {
           <RouterProvider router={ router } />
           <h1 className='header'>Today's Tasks</h1>
           <TodoForm onSubmit={addTodo} />
-          </div>
           <TodoList 
               todos={todos} 
               toggleTodo={toggleTodo} 

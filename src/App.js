@@ -118,17 +118,34 @@ const unCheckAll = () => {
               deleteTodo={deleteTodo} 
               clearTodos={clearTodos}
               editTodo={editTodo} />
-          <ClearAllBtn
-            todos={todos} 
-            clearTodos={clearTodos} 
-          />
+
+        
+        {(todos.length > 0 ) ?
+        <div className='all-btns'>
+            <div>
+            <CheckAllBtn 
+                checkTodos= {checkTodos}
+            />
+            <UnCheckAllBtn
+                unCheckAll={unCheckAll}
+            />
+            </div>
+            <ClearAllBtn
+                todos={todos} 
+                clearTodos={clearTodos} 
+            />
+        </div>
+        :
+        <div> Yeah! </div>
+        }
           <Navbar />
+
       </>
   )
 }
 
 // use state to move checked todos to the bottom of the list
-// add clear all checked button
+// add clear all checked button -done
 // add edit fcn -done
 // add nav
 // add footer

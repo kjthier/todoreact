@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ClearAllBtn from './components/ClearAllBtn';
+import Navbar from './components/Navbar';
 
-   
+
+const router = createBrowserRouter( createRoutesFromElements(
+    <Route 
+        path='/' 
+        element= {<root/>}>
+            {/* add routes here */}
+    </Route>
+));
+
 export default function App() {
 
   // Creates stored array for todos on the list:
@@ -65,6 +75,7 @@ export default function App() {
   return (
       <>
           {/* (How props work: When adding props, call them here the same name as in the fcn signature - in this case, 'NewTodoForm({onSubmit})'). The addTodo() is then called as it exists on this file and not in NewTodoForm. Props exist in the child component while the functions of the props are in this parent file. */}
+          <RouterProvider router={ router } />
           <h1 className='header'>Today's Tasks</h1>
           <TodoForm onSubmit={addTodo} />
           <TodoList 
@@ -77,6 +88,7 @@ export default function App() {
             todos={todos} 
             clearTodos={clearTodos} 
           />
+          <Navbar />
       </>
   )
 }

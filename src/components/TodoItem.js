@@ -34,11 +34,14 @@ export function TodoItem({ completed, id, title, toggleTodo, deleteTodo, editTod
             {/* onClick calls deleteTodo(), which deletes the todo per its id which is passed as a parameter. (Note using "onClick=deleteTodo()" would call the function repeatedly after each render since the fcn would be passed to the button through onClick attribute, deleting any todos before they can even be added. As below, it only calls the function when the button is clicked) */}
             <button 
                 onClick={() => deleteTodo(id)} 
-                className='btn btn-delete'
+                className='btn btn-hvr'
             >
                 Delete
             </button>
-            <button onClick={() => setIsEditing(true)}>Edit</button>
+            <button onClick={() => setIsEditing(true)}
+                className='btn btn-hvr'
+            >
+                Edit</button>
             </div>
 }
         </li>

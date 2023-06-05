@@ -120,7 +120,8 @@ const unCheckAll = () => {
               editTodo={editTodo} />
 
         
-        {(todos.length > 0 ) ?
+        {//conditional render the 3 "All"-btns (if todos isnt empty, then render)
+        (todos.length > 0 ) ?
         <div className='all-btns'>
             <div>
             <CheckAllBtn 
@@ -136,7 +137,7 @@ const unCheckAll = () => {
             />
         </div>
         :
-        <div> Yeah! </div>
+        <div></div>
         }
           <Navbar />
 
